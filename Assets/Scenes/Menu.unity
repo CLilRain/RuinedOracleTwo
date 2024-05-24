@@ -4499,6 +4499,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settingsPanel: {fileID: 1057134855}
+  clickEffect: {fileID: 6622710151990539664, guid: a599fcc94beed674fb9b3062bb9d2067, type: 3}
 --- !u!1 &1638662264
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,8 +7,24 @@ public class MainMenu_UI : MonoBehaviour
 {
     private Animator animator => GetComponent<Animator>();
 
-    [SerializeField] private GameObject settingsPanel; 
+    [SerializeField] private GameObject settingsPanel;
 
+    [SerializeField] private ParticleSystem clickEffect;
+    private ParticleSystem effect;
+
+    private void Update()
+    {
+        if(Input.GetMouseButtonDown(0))
+        {
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+            effect = Instantiate(clickEffect, mousePosition, clickEffect.transform.rotation);
+            
+        }
+        
+        if(effect != null)
+            Destroy(effect.gameObject , 2);
+    }
 
 
     public void onPlayButton()
