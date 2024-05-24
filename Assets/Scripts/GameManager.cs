@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour
 
     public Turn_UI turnUI { get; private set; }
 
+    [SerializeField] private LineRenderer mainLine;
+    public LineRenderer lineRenderer { get; private set; }
+
 
     [SerializeField] private List<Cards_SO> TotalCards = new List<Cards_SO>();
 
@@ -35,6 +38,11 @@ public class GameManager : MonoBehaviour
         turnUI = FindAnyObjectByType<Turn_UI>();
         Player = FindAnyObjectByType<Player>().transform;
         Enemy = FindAnyObjectByType<Enemy>().transform;
+    }
+
+    private void Start()
+    {
+        lineRenderer = Instantiate(mainLine , Vector2.zero , Quaternion.identity);  // spawning LineRenderer for arrow 
     }
 
     public void drawCardFromCardCollection()

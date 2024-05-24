@@ -17,7 +17,6 @@ public class Card : MonoBehaviour, IDragHandler, IDropHandler, IPointerEnterHand
     [SerializeField] private GameObject cardDetailBoxPrefab;
     private GameObject cardDetailBox;
 
-    [SerializeField] private LineRenderer line;
     private LineRenderer lineRenderer;
 
     private bool isFacingMainSide;      // checking which side we facing -- front (main) or back
@@ -40,7 +39,7 @@ public class Card : MonoBehaviour, IDragHandler, IDropHandler, IPointerEnterHand
     {
         canClickable = false;
 
-        lineRenderer = Instantiate(line, transform.position, Quaternion.identity);
+        lineRenderer = GameManager.instance.lineRenderer;
         lineRenderer.gameObject.SetActive(false);
     }
 
@@ -50,11 +49,12 @@ public class Card : MonoBehaviour, IDragHandler, IDropHandler, IPointerEnterHand
         {
             if(Input.GetMouseButtonUp(0))
                 isDraging = false;
-        }
 
-        if(!isDraging && lineRenderer.gameObject.activeInHierarchy) // if not draging and line renderer is active -- diable it
-        {
-            lineRenderer.gameObject.SetActive(false);
+            if(lineRenderer != null && !isDraging)  // no draging ? set position of line renderer so we can't see
+            {
+                lineRenderer.SetPosition(0, Vector2.zero);
+                lineRenderer.SetPosition(1 , Vector2.zero);
+            }
         }
 
         if(GameManager.instance.isEnemyTurn && !cardMotion.isBelongToEnemy)    // to fix an issue 
@@ -85,10 +85,11 @@ public class Card : MonoBehaviour, IDragHandler, IDropHandler, IPointerEnterHand
             }
             else       //if on field, no need to move card -- just draw arrow
             {
-                lineRenderer.gameObject.SetActive(true);
 
                 if (lineRenderer != null)
                 {
+                    lineRenderer.gameObject.SetActive(true);
+                    
                     lineRenderer.SetPosition(0, transform.position);
                     lineRenderer.SetPosition(1, mousePosition);
                 }
