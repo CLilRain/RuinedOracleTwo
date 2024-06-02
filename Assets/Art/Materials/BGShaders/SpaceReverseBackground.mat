@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4419506955571982215
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 7
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SpaceReverseBackground
+  m_Shader: {fileID: 4800000, guid: c1af5855d65a4ca4fae332e290801ae8, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AlphaCutoff: 0.5
+    - _DustLengthScale: -8.69
+    - _FogIntensity: 1.27
+    - _FogLength: 0.1
+    - _FogScale: 90
+    - _FogSpeed: 0.0215
+    - _NoiseScale: 33.13
+    - _PlanetDustLength: -8.69
+    - _PlanetNoiseIntensity: 1.51
+    - _PlanetNoiseOpacity: 1
+    - _PlanetNoiseScale: 30.39
+    - _PlanetRotateSpeed: 0.06065502
+    - _RotateSpeed: 0.0603
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _FogColor: {r: 0, g: 0.103946924, b: 1, a: 0}
+    - _MaskOffset: {r: 0, g: -1.75, b: 0, a: 0}
+    - _MaskTiling: {r: 0.9, g: 2.03, b: 0, a: 0}
+    - _Offset: {r: 0, g: -1.88, b: 0, a: 0}
+    - _PlanetColor: {r: 0, g: 0.5799811, b: 1, a: 1}
+    - _PlanetDustColor: {r: 0.18369527, g: 0.6197048, b: 0.9056604, a: 1}
+    - _PlanetMaskOffset: {r: 0, g: -1.75, b: 0, a: 0}
+    - _PlanetMaskTiling: {r: 0.9, g: 2.03, b: 0, a: 0}
+  m_BuildTextureStacks: []
