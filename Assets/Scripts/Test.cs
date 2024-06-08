@@ -6,6 +6,9 @@ public class Test : MonoBehaviour
 {
 <<<<<<< Updated upstream
     // I am B
+=======
+    // I am A
+>>>>>>> Stashed changes
     // Start is called before the first frame update
     void Start()
     {
