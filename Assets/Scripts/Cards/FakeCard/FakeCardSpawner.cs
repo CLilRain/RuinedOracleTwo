@@ -29,7 +29,7 @@ public class FakeCardSpawner : MonoBehaviour
         //fake cards being spawn
 
         spawnFakeCardsForPlayer();
-        spawnFakeCardsForEnemy();
+       // spawnFakeCardsForEnemy();
     }
 
     #region spawn FakeCards

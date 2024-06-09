@@ -15,6 +15,8 @@ MonoBehaviour:
   typeOfcard: 4
   cardName: Third Time The Charm
   cardImg: {fileID: 21300000, guid: 252581aec8d48fc4a9afef79cd47a8dd, type: 3}
+  smallImg: {fileID: 21300000, guid: d0ddc7c2bffbb75478900ddb7d037b63, type: 3}
   description: Deal 3 Damage To Enemies....
   attackDamage: 3
   manaCost: 2
+  cardAttackEffect: {fileID: 836054535952877741, guid: 2bcf78edc055a314abd51cae2ea9d665, type: 3}

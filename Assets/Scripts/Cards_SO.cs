@@ -25,6 +25,12 @@ public class Cards_SO : ScriptableObject
         get { return cardImg; }
     }
 
+    [SerializeField] private Sprite smallImg;
+
+    public Sprite smallIMG
+    {
+        get { return smallImg; }
+    }
 
     [TextArea(2 , 5)]
     [SerializeField] private string description;
@@ -47,6 +53,13 @@ public class Cards_SO : ScriptableObject
     public int ManaCost
     {
         get { return manaCost; }
+    }
+
+    [SerializeField] private GameObject cardAttackEffect;
+
+    public GameObject CardAttackEffect
+    {
+        get { return cardAttackEffect; }
     }
 
 }

@@ -15,8 +15,10 @@ MonoBehaviour:
   typeOfcard: 2
   cardName: Reset
   cardImg: {fileID: 21300000, guid: dd2ace14f7817f745902b551fcbe2a84, type: 3}
+  smallImg: {fileID: 21300000, guid: 6974ed97ea1993b4f91424541e650ba5, type: 3}
   description: 'Come TO ME You Cards...!
 
 '
   attackDamage: 0
   manaCost: 4
+  cardAttackEffect: {fileID: 2160225223313947227, guid: 91d5f16bc5c079e418011a3ea0f89130, type: 3}

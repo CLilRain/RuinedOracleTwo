@@ -3,13 +3,27 @@ using System.Collections;
 
 public class PlayerHealth : MonoBehaviour
 {
+    private Player player;
+
     private SpriteRenderer spriteRenderer;
 
     [SerializeField] private int health;
 
+    private bool hit;
+
     private void Awake()
     {
+        player = GetComponent<Player>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    private void Update()
+    {
+        if (hit && !player.animator.GetCurrentAnimatorStateInfo(0).IsName("playerhitAnimation"))
+        {
+            hit = false;
+            player.animator.SetBool("Hit_A" , hit);
+        }
     }
 
     public void takeDamageOf(int damageAmount)
@@ -26,9 +40,12 @@ public class PlayerHealth : MonoBehaviour
 
     private IEnumerator hitEffect()
     {
+        hit = true;
+        player.animator.SetBool("Hit_A", hit);
+
         spriteRenderer.color = Color.red;
 
-        yield return new WaitForSeconds(.05f);
+        yield return new WaitForSeconds(.5f);
 
         spriteRenderer.color = Color.white;
     }

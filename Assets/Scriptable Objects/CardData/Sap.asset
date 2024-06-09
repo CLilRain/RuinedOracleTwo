@@ -15,6 +15,8 @@ MonoBehaviour:
   typeOfcard: 3
   cardName: Sap
   cardImg: {fileID: 21300000, guid: a80b2d7038ae93448bd9525126af0308, type: 3}
+  smallImg: {fileID: 21300000, guid: ada7dc5cb1624e44faeaa5d6f47f3410, type: 3}
   description: Sap ! Sap!
   attackDamage: 1
   manaCost: 1
+  cardAttackEffect: {fileID: 6503996043256513510, guid: f9f76820a7ad9ba4fbab8ae30432c6db, type: 3}

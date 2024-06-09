@@ -250,8 +250,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCardImg: {fileID: 4860042186999636926}
   cardBackSide: {fileID: 0}
+  smallCard: {fileID: 9083401553270343708, guid: f6b8fd8158fa6d24bbdf0564beda33de, type: 3}
   cardDetailBoxPrefab: {fileID: 901197168389480592, guid: a0c7551eaf7a25344ac8c1210d3efae9, type: 3}
-  line: {fileID: 6932360319018824576, guid: 26dbe828983cfc340ba8b755b45db966, type: 3}
+  holdPointIndex: 0
 --- !u!114 &5612475183517916489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,7 +265,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e1c7fc5edd77ae49a78c938dc313176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isBelongToEnemy: 0
 --- !u!114 &4883815398036681032
 MonoBehaviour:
   m_ObjectHideFlags: 0

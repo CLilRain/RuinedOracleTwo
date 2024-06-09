@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
 
         turnUI = FindAnyObjectByType<Turn_UI>();
         Player = FindAnyObjectByType<Player>().transform;
-        Enemy = FindAnyObjectByType<Enemy>().transform;
+        Enemy = FindAnyObjectByType<EnemyAI>().transform;
     }
 
     private void Start()
@@ -50,21 +50,46 @@ public class GameManager : MonoBehaviour
         if (isPlayerTurn)
         {
             // first check if player have more than 5 card , don't proceed
+            if(Player.GetComponent<Player>().cardsInPlayerHand.Count >= 5)
+            {
+                Debug.Log("No Space Left On Player Hand");
+                return;
+            }
 
-            spawnMainCard();
+            spawnMainCard(true);
+        }
+        else if(isEnemyTurn)
+        {
+            //if you want you can check limit for cards in enemy Hand
+            //if cardsInEnemyHand > 5 -- not add more cards 
+            spawnMainCard(false);
         }
     }
 
-    private void spawnMainCard()
+    private void spawnMainCard(bool _spawningForPlayer)
     {
         GameObject card = Instantiate(mainCardPrefab, transform.position, Quaternion.identity);
 
         Card _card = card.GetComponent<Card>();
 
         _card.cardData = getRandomCardData();
-        _card.setCardToFlipMainSide();
-    }
+        
+        if(_spawningForPlayer)
+        {
+            _card.setCardToFlipMainSide();
+            Player.GetComponent<Player>().cardsInPlayerHand.Add(_card.cardData);
+        }
+        else
+        {
+            CardMotion _cardMotion = card.GetComponent<CardMotion>();
 
+            _cardMotion.speed = 20;
+            _cardMotion.isBelongToEnemy = true;
+            _cardMotion.targetPoint = Enemy.GetComponent<EnemyAI>().enemyCardHoldPoint;
+
+            Enemy.GetComponent<Enemy>().cardsInEnemyHand.Add(card);
+        }
+    }
 
     public Cards_SO getRandomCardData()
     {

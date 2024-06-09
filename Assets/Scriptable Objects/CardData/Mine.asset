@@ -15,8 +15,10 @@ MonoBehaviour:
   typeOfcard: 1
   cardName: Mine
   cardImg: {fileID: 21300000, guid: ff8d5e6a061b6dd49b767a91f2434328, type: 3}
+  smallImg: {fileID: 21300000, guid: a61293c1a38f4084285993238e1dcbff, type: 3}
   description: 'Beaware from this small Mine...!
 
 '
   attackDamage: 1
   manaCost: 2
+  cardAttackEffect: {fileID: 836054535952877741, guid: 2bcf78edc055a314abd51cae2ea9d665, type: 3}

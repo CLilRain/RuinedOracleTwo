@@ -1,41 +1,27 @@
 using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 public class Enemy : MonoBehaviour
 {
+    private EnemyAI enemyAI;
+    public Animator animator {  get; private set; }
 
+    public List<GameObject> cardsInEnemyHand = new List<GameObject>();
+   
     public bool cardDrawLeft { get; set; } = true;
 
 
+    private void Awake()
+    {
+        enemyAI = GetComponent<EnemyAI>();
+        animator = GetComponent<Animator>();
+    }
+
     private void Update()
     {
-        if(GameManager.instance.isEnemyTurn && cardDrawLeft)
+        if (GameManager.instance.isEnemyTurn && cardDrawLeft)
         {
-            spawnCardForEnemy();
+            enemyAI.spawnCardForEnemy();
         }
-    }
-   
-    public void spawnCardForEnemy()
-    {
-        cardDrawLeft = false;
-        StartCoroutine(spawnCardForEnemyWithDelay(GameManager.instance.mainCardPrefab, GameManager.instance.getRandomCardData()));
-    }
-
-    private IEnumerator spawnCardForEnemyWithDelay(GameObject _mainCard, Cards_SO _cardData)
-    {
-        yield return new WaitForSeconds(2f);
-
-        GameObject card =
-            Instantiate(_mainCard, new Vector2(transform.position.x - 3, transform.position.y), Quaternion.identity);
-
-        Card _card = card.GetComponent<Card>();
-        CardMotion _cardMotion = card.GetComponent<CardMotion>();
-
-        _card.cardData = _cardData;
-        _card.setCardToFlipMainSide();
-
-        _cardMotion.speed = 10;
-        _cardMotion.isBelongToEnemy = true;
-        _cardMotion.targetPoint = GameManager.instance.Player;
     }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 
 public class Card : MonoBehaviour, IDragHandler, IDropHandler, IPointerEnterHandler, IPointerExitHandler
@@ -10,9 +10,11 @@ public class Card : MonoBehaviour, IDragHandler, IDropHandler, IPointerEnterHand
 
     public Cards_SO cardData { get; set; }
 
-
     [SerializeField] private Image mainCardImg;
     [SerializeField] private Sprite cardBackSide;       // back side img of a card
+
+    public GameObject smallCard;
+
 
     [SerializeField] private GameObject cardDetailBoxPrefab;
     private GameObject cardDetailBox;
@@ -23,11 +25,6 @@ public class Card : MonoBehaviour, IDragHandler, IDropHandler, IPointerEnterHand
     private bool isDraging;
     private bool isOnField;
 
-    public bool canClickable { get; set;}
-
-
-    public int holdPointIndex;  
-
 
     private void Awake()
     {
@@ -37,40 +34,29 @@ public class Card : MonoBehaviour, IDragHandler, IDropHandler, IPointerEnterHand
 
     private void Start()
     {
-        canClickable = false;
-
         lineRenderer = GameManager.instance.lineRenderer;
         lineRenderer.gameObject.SetActive(false);
+
     }
 
     private void Update()
     {
         if(isDraging)
         {
-            if(Input.GetMouseButtonUp(0))
+            if (Input.GetMouseButtonUp(0))
                 isDraging = false;
-
-            if(lineRenderer != null && !isDraging)  // no draging ? set position of line renderer so we can't see
-            {
-                lineRenderer.SetPosition(0, Vector2.zero);
-                lineRenderer.SetPosition(1 , Vector2.zero);
-            }
-        }
-
-        if(GameManager.instance.isEnemyTurn && !cardMotion.isBelongToEnemy)    // to fix an issue 
-        {
-            animator.SetBool("SHOWCARD_A", false);
-
-            if (cardDetailBox != null)
-                Destroy(cardDetailBox);
-
-            if (!isOnField)
-                transform.position = cardMotion.targetPoint.position;
         }
     }
 
+
     public void OnDrag(PointerEventData eventData)
     {
+        if (CardManager.instance.isCardsBusy || cardMotion.isBelongToEnemy)
+            return;
+
+        Debug.Log("DRAG");
+
+
         if (GameManager.instance.isPlayerTurn)  // if this is player turn
         {
             StopAllCoroutines(); // cause we don't want it to flip while draging
@@ -79,40 +65,8 @@ public class Card : MonoBehaviour, IDragHandler, IDropHandler, IPointerEnterHand
 
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-            if (!isOnField)     // if not on field -- follow mouse 
-            {
-                transform.position = mousePosition;
-            }
-            else       //if on field, no need to move card -- just draw arrow
-            {
-
-                if (lineRenderer != null)
-                {
-                    lineRenderer.gameObject.SetActive(true);
-                    
-                    lineRenderer.SetPosition(0, transform.position);
-                    lineRenderer.SetPosition(1, mousePosition);
-                }
-
-                RaycastHit2D hit = 
-                    Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-
-
-                if (hit.collider != null)
-                {
-                    if (hit.collider.GetComponent<EnemyHealth>() != null)
-                    {
-                        cardMotion.speed = 50;
-                        cardMotion.targetReached = false;
-                        cardMotion.goingTowardEnemy = true;
-                        cardMotion.targetPoint = hit.collider.transform;
-
-                        lineRenderer.gameObject.SetActive(false);   
-                        // you can destroy it later but make sure to destory card too
-                    }
-                }
-            }
-
+            transform.position = mousePosition;
+           
             if (cardDetailBox != null)
                 Destroy(cardDetailBox);
         }
@@ -120,57 +74,75 @@ public class Card : MonoBehaviour, IDragHandler, IDropHandler, IPointerEnterHand
 
     public void OnDrop(PointerEventData eventData)
     {
-        isDraging = false;
+        if (CardManager.instance.isCardsBusy || cardMotion.isBelongToEnemy)
+            return;
+            
+        Debug.Log("DROP");
 
-       
-
-        RaycastHit2D hit = 
-            Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-
-
-        if(hit.collider != null)
+        if (!GameManager.instance.isEnemyTurn)
         {
-            if(hit.collider.GetComponent<Field>() != null)
-            {
-                Field field = hit.collider.GetComponent<Field>();
+            isDraging = false;
 
-                if (field.cardOnFieldForPlayer.Count >= 3)    // can change field space (later if needed)
+
+            RaycastHit2D hit =
+                Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+
+
+            if (hit.collider != null)
+            {
+                if (hit.collider.GetComponent<Field>() != null)
                 {
-                    Debug.LogWarning("No Space On Field !");
+                    Field field = hit.collider.GetComponent<Field>();
+
+                    if (field.cardOnFieldForPlayer.Count >= 3)    // can change field space (later if needed)
+                    {
+                        Debug.LogWarning("No Space On Field !");
+                        return;
+                    }
+
+                    field.setCardOnFieldForPlayer(this.gameObject, true);
+
+
+                    isOnField = true;
+                    transform.parent = null;
+
+                    GameObject _smallCard = Instantiate(smallCard);
+
+                    _smallCard.GetComponent<SmallCard>().
+                        smallCardSetup(cardData, this.gameObject, cardData.smallIMG, field.getCardPositionForPlayerInField().position, Vector2.zero , field.getCardHoldPointIndexForPlayer() , false , false);
+
+
+                    GameManager.instance.Player.GetComponent<Player>().cardsInPlayerHand.Remove(cardData);
+                    this.gameObject.SetActive(false);
+
+
+                    //check if not enough mana to attack then pass turn to Enemy
+                    //GameManager.instance.turnUI.PlayEnemyTurnAnimation();
+
                     return;
                 }
 
-                field.setCardOnFieldForPlayer(this.gameObject , true);
-
-
-                isOnField = true;
-
-                transform.parent = null;
-                transform.position = field.getCardPositionForPlayerInField().position;
-
-                holdPointIndex = field.getCardHoldPointIndex();
-
-                //check if not enough mana to attack then pass turn to Enemy
-                //GameManager.instance.turnUI.PlayEnemyTurnAnimation();
-
-                return;
             }
-
+            // if you not droping on field -- it return to it original position
+            transform.position = cardMotion.targetPoint.position;
         }
-
-         transform.position = cardMotion.targetPoint.position;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (GameManager.instance.isPlayerTurn && canClickable)
+        if (CardManager.instance.isCardsBusy || cardMotion.isBelongToEnemy)
+            return;
+
+            Debug.Log("ENTER");
+
+        if (GameManager.instance.isPlayerTurn)
         {
+
             GetComponentInChildren<Canvas>().sortingOrder = 2;
            
             if (isOnField)
-            {
-                return;
-            }
+                 return;    
+           
 
             animator.SetBool("SHOWCARD_A", true);
 
@@ -187,7 +159,12 @@ public class Card : MonoBehaviour, IDragHandler, IDropHandler, IPointerEnterHand
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (GameManager.instance.isPlayerTurn && canClickable)
+        if (CardManager.instance.isCardsBusy || cardMotion.isBelongToEnemy)
+            return; 
+
+        Debug.Log("EXIT");
+
+        if (GameManager.instance.isPlayerTurn)
         {
             GetComponentInChildren<Canvas>().sortingOrder = 0;
 
@@ -200,25 +177,6 @@ public class Card : MonoBehaviour, IDragHandler, IDropHandler, IPointerEnterHand
             if (cardDetailBox != null)
                 Destroy(cardDetailBox);
         }
-    }
-
-
-
-    public void PlayerCardCollideWithEnemy(Transform _target) 
-    {
-        GameManager manager = GameManager.instance;
-        Field field = FindAnyObjectByType<Field>();
-
-
-        _target.gameObject.GetComponent<EnemyHealth>().takeDamageOf(cardData.AttackDamage);
-
-        manager.turnUI.PlayEnemyTurnAnimation();
-
-        field.setCardOnFieldForPlayer(this.gameObject , false);
-        field.updateEmptySpace(holdPointIndex);
-
-
-        destroyCard();
     }
 
     private void summonDetailBox()

@@ -9,9 +9,8 @@ public class CardMotion : MonoBehaviour
 
 
 
-    public bool targetReached {  get; set; }    
+    public bool targetReached {  get; set; }
     public bool isBelongToEnemy {  get; set; }
-    public bool goingTowardEnemy {  get; set; } 
 
 
 
@@ -37,31 +36,8 @@ public class CardMotion : MonoBehaviour
 
             if (Vector2.Distance(transform.position, targetPoint.position) < .1f)
             {
-                PlayerCardHitEnemy();
-
-                if (isBelongToEnemy)
-                {
-                    GameManager.instance.turnUI.PlayPlayerTurnAnimation();
-
-                    FindAnyObjectByType<PlayerHealth>().takeDamageOf(GetComponent<Card>().cardData.AttackDamage);
-                    GetComponent<Card>().destroyCard();
-                }
-
-                if (!isBelongToEnemy && !goingTowardEnemy)
-                {
-                    GetComponent<Card>().canClickable = true;   //can't click on card until card won't reach his default Position
-                }
-
                 targetReached = true;
             }
-        }
-    }
-
-    private void PlayerCardHitEnemy()
-    {
-        if (!isBelongToEnemy && goingTowardEnemy)
-        {
-            GetComponent<Card>().PlayerCardCollideWithEnemy(targetPoint);
         }
     }
 
@@ -78,9 +54,7 @@ public class CardMotion : MonoBehaviour
                     return;
                 }
             }
-            
         }
     }
 }
 
-// this is only for card to move to its default position 

@@ -4,12 +4,19 @@ using System.Collections.Generic;
 
 public class Player : MonoBehaviour
 {
+    public Animator animator {  get; private set; }
+
     public List<Cards_SO> cardsInPlayerHand = new List<Cards_SO>();     // later make this { get ; private set;}
 
 
     // add list for all dead card 
 
     public bool cardDrawnAtPlayerTurn {  get; set; }
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     private void Start()
     {
