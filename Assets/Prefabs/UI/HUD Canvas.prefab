@@ -109,8 +109,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 87.6, y: 50.7}
-  m_SizeDelta: {x: 50, y: 39}
+  m_AnchoredPosition: {x: 125.6, y: 50.7}
+  m_SizeDelta: {x: 163.4, y: 39}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4926853453317711812
 CanvasRenderer:
@@ -174,7 +174,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -183,7 +183,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 6241520976490542489}
   - component: {fileID: 194896363335427048}
   m_Layer: 5
-  m_Name: TimePoints FG
+  m_Name: Essence FG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -244,7 +244,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 1.1}
-  m_SizeDelta: {x: 279, y: 65.3}
+  m_SizeDelta: {x: 318, y: 65.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6241520976490542489
 CanvasRenderer:
@@ -266,15 +266,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Material: {fileID: 2100000, guid: 6613b56cfe163d043acb3edf4dacf245, type: 2}
+  m_Color: {r: 0, g: 0.8584906, b: 0.813244, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d3952ef5d9c349d4c8c92aafe9cc4f5a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 96f97ba2632e2fc4d9477f92aa520f95, type: 3}
   m_Type: 3
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -322,7 +322,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -234.5, y: 473.4}
-  m_SizeDelta: {x: 261, y: 100}
+  m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6625647530170801289
 CanvasRenderer:
@@ -345,14 +345,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.09019608, g: 0.13725491, b: 0.20000002, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 58660397370e7fb429481e7090e6eb6b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3f8d0b33dd8d5b643bcd58bf19b8d88d, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -818,7 +818,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -569.6, y: 473.4}
-  m_SizeDelta: {x: 318, y: 100}
+  m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2625298435224812658
 CanvasRenderer:
@@ -841,14 +841,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.09064614, g: 0.13898657, b: 0.1981132, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2f01e3669c2e2be4f909696bbd01dfe4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3f8d0b33dd8d5b643bcd58bf19b8d88d, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1148,7 +1148,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1158,8 +1158,8 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: 1b981990220c09b4a87b9f5fd13a1514, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 921f8f501e87d9f4bb6117742603f4ac, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -1172,7 +1172,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8092529409765814213}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1291266801371286607}
+        m_TargetAssemblyTypeName: HUD, Assembly-CSharp
+        m_MethodName: ClickedEndTurn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5735033878081502098
 GameObject:
   m_ObjectHideFlags: 0
@@ -1260,7 +1272,7 @@ GameObject:
   - component: {fileID: 722113363112744029}
   - component: {fileID: 5771061223487240770}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: Number (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1282,8 +1294,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 162.9, y: 50.7}
-  m_SizeDelta: {x: 200, y: 39}
+  m_AnchoredPosition: {x: 108.4, y: 50.7}
+  m_SizeDelta: {x: 163.4, y: 39}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &722113363112744029
 CanvasRenderer:
@@ -1347,7 +1359,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1356,7 +1368,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -1476,15 +1488,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Material: {fileID: 2100000, guid: 844f2cc08fb3aca4fafcb0a0e18e3938, type: 2}
+  m_Color: {r: 1, g: 0.54923946, b: 0, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e30daac214eae0d44bdf036b35cc8e4c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 96f97ba2632e2fc4d9477f92aa520f95, type: 3}
   m_Type: 3
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1627,6 +1639,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8777f2bd4266c054a8eb39aa618079db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timePointText: {fileID: 5771061223487240770}
+  essenceText: {fileID: 5987554735451530561}
+  timePointBar: {fileID: 6617598293736850757}
+  essenceBar: {fileID: 194896363335427048}
 --- !u!1 &7773203204815703840
 GameObject:
   m_ObjectHideFlags: 0
@@ -1639,7 +1655,7 @@ GameObject:
   - component: {fileID: 7599760495262468390}
   - component: {fileID: 5911497582194414456}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Title (Text)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
