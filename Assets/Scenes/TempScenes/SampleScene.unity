@@ -304,6 +304,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyCardHoldPoint: {fileID: 1297358515}
   smallCard: {fileID: 9083401553270343708, guid: f6b8fd8158fa6d24bbdf0564beda33de, type: 3}
+  smallCardsInFields: []
 --- !u!114 &7643685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,7 +317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe8bf8f48af4a3d438e02691cfde9086, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream:Assets/Scenes/TempScenes/SampleScene.unity
+  cardsInEnemyHand: []
 --- !u!1 &36873728
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,7 +355,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8897e685a583fc74cb1fde1ae505158c, type: 2}
+  - {fileID: 2100000, guid: af7a5c5c082612048bab817ce32d8c2e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -401,9 +402,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-=======
-  cardsInEnemyHand: []
->>>>>>> Stashed changes:Assets/Scenes/SampleScene.unity
 --- !u!1 &80337549
 GameObject:
   m_ObjectHideFlags: 0
@@ -2452,9 +2450,6 @@ SceneRoots:
   - {fileID: 7643678}
   - {fileID: 244388924}
   - {fileID: 80337551}
-<<<<<<< Updated upstream:Assets/Scenes/TempScenes/SampleScene.unity
   - {fileID: 36873730}
-=======
   - {fileID: 1319434929}
   - {fileID: 263961750}
->>>>>>> Stashed changes:Assets/Scenes/SampleScene.unity
