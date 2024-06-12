@@ -9,15 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26416ee1d4e6bf74dad71d9ef3fe0484, type: 3}
+  m_Script: {fileID: 11500000, guid: b3c2645245d98a5419a759d951d76484, type: 3}
   m_Name: TimeHealAllWounds
   m_EditorClassIdentifier: 
   typeOfCard: 10
-  cardName: 
+  cardName: TimeHealAllWounds
   cardImg: {fileID: 21300000, guid: 02c901fb6512060478361de3e0a93f5c, type: 3}
   smallImg: {fileID: 21300000, guid: 02c901fb6512060478361de3e0a93f5c, type: 3}
   description: 
-  damageToTarget: 0
-  manaCost: 2
+  damageToTarget: 1
+  manaCost: 1
   cardAttackEffect: {fileID: 836054535952877741, guid: 2bcf78edc055a314abd51cae2ea9d665, type: 3}
-  healAmount: 4
+  healAmount: 1

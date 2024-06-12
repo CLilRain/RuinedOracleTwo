@@ -2,11 +2,9 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-
 public class EnemyAI : MonoBehaviour
 {
     private Enemy enemy;
-
 
     public Transform enemyCardHoldPoint;
     [SerializeField] private GameObject smallCard;

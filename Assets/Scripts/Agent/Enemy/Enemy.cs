@@ -11,8 +11,10 @@ public class Enemy : Agent
     public bool cardDrawLeft { get; set; } = true;
 
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         enemyAI = GetComponent<EnemyAI>();
         animator = GetComponent<Animator>();
     }
@@ -23,6 +25,16 @@ public class Enemy : Agent
         {
             enemyAI.spawnCardForEnemy();
         }
+    }
+
+    protected override void UpdateHealthUI()
+    {
+        hud.SetEnemyHealth(health, maxHealth);
+    }
+
+    protected override void UpdateEssenceUI()
+    {
+        hud.SetEnemyEssence(essence, maxessence);
     }
 
     #region Card affect functions

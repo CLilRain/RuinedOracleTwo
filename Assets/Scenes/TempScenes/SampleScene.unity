@@ -317,6 +317,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe8bf8f48af4a3d438e02691cfde9086, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 0
+  maxHealth: 0
+  essence: 0
+  maxessence: 0
   cardsInEnemyHand: []
 --- !u!1 &21313200
 GameObject:
@@ -718,12 +722,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fakeCardPrefab: {fileID: 2737551254642495992, guid: 89ee4cf2da99dea4e99c0790bce23366, type: 3}
   TotalCards:
-  - {fileID: 11400000, guid: b3b5cd4e10662064c90c7d093ca37193, type: 2}
-  - {fileID: 11400000, guid: c392dc138a9936148929f6ae5e22812d, type: 2}
-  - {fileID: 11400000, guid: 97b46139670b8124eae11470ba4528b5, type: 2}
-  - {fileID: 11400000, guid: 37957a1858abd1345b1dd84252b327e7, type: 2}
-  - {fileID: 11400000, guid: 1eec6ada876c12440abc1d5f18f45a9d, type: 2}
   - {fileID: 11400000, guid: c1238c55d12c2b24dbaca4c2db589ac6, type: 2}
+  - {fileID: 11400000, guid: 1eec6ada876c12440abc1d5f18f45a9d, type: 2}
+  - {fileID: 11400000, guid: 37957a1858abd1345b1dd84252b327e7, type: 2}
+  - {fileID: 11400000, guid: 97b46139670b8124eae11470ba4528b5, type: 2}
+  - {fileID: 11400000, guid: c392dc138a9936148929f6ae5e22812d, type: 2}
+  - {fileID: 11400000, guid: b3b5cd4e10662064c90c7d093ca37193, type: 2}
 --- !u!1 &244388920
 GameObject:
   m_ObjectHideFlags: 0
@@ -2269,6 +2273,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bae29a04a2516f84c96b11864c2bcfb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 0
+  maxHealth: 0
+  essence: 0
+  maxessence: 0
   cardsInPlayerHand:
   - {fileID: 11400000, guid: b3b5cd4e10662064c90c7d093ca37193, type: 2}
   - {fileID: 11400000, guid: c392dc138a9936148929f6ae5e22812d, type: 2}
@@ -2539,6 +2547,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 706961860680378398, guid: 669048ab567ec4048b0a5779285f98a4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4594830692634620134, guid: 669048ab567ec4048b0a5779285f98a4, type: 3}
       propertyPath: m_Pivot.x
       value: 0

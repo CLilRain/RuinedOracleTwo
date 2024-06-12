@@ -4,17 +4,31 @@ using TMPro;
 
 public class HUD : MonoBehaviour
 {
+    public static HUD Instance;
+
     [SerializeField]
     protected TMP_Text timePointText;
 
     [SerializeField]
+    protected Image timePointBar;
+
+    [Space]
+    [SerializeField]
     protected TMP_Text essenceText;
 
     [SerializeField]
-    protected Image timePointBar;
+    protected Image essenceBar;
+
+    [Space]
+    [SerializeField]
+    protected Image enemyHPBar;
 
     [SerializeField]
-    protected Image essenceBar;
+    protected TMP_Text enemyHPText;
+
+    [Space]
+    [SerializeField]
+    protected TMP_Text enemyEssenceText;
 
     protected Turn_UI gameplayUI;
 
@@ -25,6 +39,11 @@ public class HUD : MonoBehaviour
     protected int currentEssence = 6;
     protected int maxEssence = 6;
 #endif
+
+    public virtual void Awake()
+    {
+        Instance = this;
+    }
 
     protected virtual void Start()
     {
@@ -38,7 +57,7 @@ public class HUD : MonoBehaviour
     protected virtual void Update()
     {
 #if UNITY_EDITOR
-        currrentTime -= Time.deltaTime;
+        //currrentTime -= Time.deltaTime;
         SetTimePoints(Mathf.Round(currrentTime), Mathf.Round(maxTime));
 
         if (Input.GetKeyDown(KeyCode.U))
@@ -70,6 +89,17 @@ public class HUD : MonoBehaviour
     {
         essenceBar.fillAmount = (float)current / (float)max;
         essenceText.text = string.Format("{0} / {1}", current, max);
+    }
+
+    public virtual void SetEnemyHealth(int current, int max)
+    {
+        enemyHPBar.fillAmount = (float)current / (float)max;
+        enemyHPText.text = string.Format("{0} / {1}", current, max);
+    }
+
+    public virtual void SetEnemyEssence(int current, int max)
+    {
+        enemyEssenceText.text = string.Format("{0} / {1}", current, max);
     }
 
     public virtual void ClickedEndTurn()

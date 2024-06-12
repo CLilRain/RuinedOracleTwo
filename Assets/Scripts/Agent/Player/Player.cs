@@ -13,13 +13,15 @@ public class Player : Agent
 
     public bool cardDrawnAtPlayerTurn {  get; set; }
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         animator = GetComponent<Animator>();
     }
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         StartCoroutine(spawnCardsInHand());
     }
 
