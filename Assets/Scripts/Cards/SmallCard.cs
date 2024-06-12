@@ -217,7 +217,7 @@ public class SmallCard : MonoBehaviour, IDragHandler, IPointerEnterHandler, IPoi
     private void giveDamageToEnemy()
     {
         EnemyHealth enemyHealth = GameManager.instance.Enemy.GetComponent<EnemyHealth>();
-        enemyHealth.takeDamageOf(cardData.AttackDamage);
+        enemyHealth.takeDamageOf(cardData.DamageToTarget);
 
         GameObject _cardAttackEffect = Instantiate(cardData.CardAttackEffect, GameManager.instance.Enemy.position, Quaternion.identity);
         Destroy(_cardAttackEffect, 2f);
@@ -254,7 +254,7 @@ public class SmallCard : MonoBehaviour, IDragHandler, IPointerEnterHandler, IPoi
     private void giveDamageToPlayer()
     {
         PlayerHealth playerHealth = GameManager.instance.Player.GetComponent<PlayerHealth>();
-        playerHealth.takeDamageOf(cardData.AttackDamage);
+        playerHealth.takeDamageOf(cardData.DamageToTarget);
 
         GameObject _cardAttackEffect = Instantiate(cardData.CardAttackEffect, GameManager.instance.Player.position , Quaternion.identity);
         Destroy(_cardAttackEffect , 2f);

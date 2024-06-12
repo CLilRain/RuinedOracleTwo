@@ -330,7 +330,7 @@ GameObject:
   - component: {fileID: 21313201}
   - component: {fileID: 21313202}
   m_Layer: 0
-  m_Name: UICamera
+  m_Name: HudCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -375,7 +375,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 32
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -440,7 +440,7 @@ Transform:
   m_GameObject: {fileID: 21313200}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -52.5, y: 0, z: -10}
+  m_LocalPosition: {x: -92.75, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -718,11 +718,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fakeCardPrefab: {fileID: 2737551254642495992, guid: 89ee4cf2da99dea4e99c0790bce23366, type: 3}
   TotalCards:
-  - {fileID: 11400000, guid: 37957a1858abd1345b1dd84252b327e7, type: 2}
-  - {fileID: 11400000, guid: 97b46139670b8124eae11470ba4528b5, type: 2}
-  - {fileID: 11400000, guid: b9ee608f003c12740bd7c804c02e9206, type: 2}
+  - {fileID: 11400000, guid: b3b5cd4e10662064c90c7d093ca37193, type: 2}
   - {fileID: 11400000, guid: c392dc138a9936148929f6ae5e22812d, type: 2}
-  - {fileID: 11400000, guid: 76aac64b5840fbd4ab7be36b8fbd8ad2, type: 2}
+  - {fileID: 11400000, guid: 97b46139670b8124eae11470ba4528b5, type: 2}
+  - {fileID: 11400000, guid: 37957a1858abd1345b1dd84252b327e7, type: 2}
+  - {fileID: 11400000, guid: 1eec6ada876c12440abc1d5f18f45a9d, type: 2}
+  - {fileID: 11400000, guid: c1238c55d12c2b24dbaca4c2db589ac6, type: 2}
 --- !u!1 &244388920
 GameObject:
   m_ObjectHideFlags: 0
@@ -922,11 +923,12 @@ MonoBehaviour:
   mainCardPrefab: {fileID: 8830720401250105164, guid: 74665bfbbba4c664ab996c11105a8e5a, type: 3}
   mainLine: {fileID: 6932360319018824576, guid: 26dbe828983cfc340ba8b755b45db966, type: 3}
   TotalCards:
+  - {fileID: 11400000, guid: 1eec6ada876c12440abc1d5f18f45a9d, type: 2}
   - {fileID: 11400000, guid: 37957a1858abd1345b1dd84252b327e7, type: 2}
   - {fileID: 11400000, guid: 97b46139670b8124eae11470ba4528b5, type: 2}
-  - {fileID: 11400000, guid: b9ee608f003c12740bd7c804c02e9206, type: 2}
   - {fileID: 11400000, guid: c392dc138a9936148929f6ae5e22812d, type: 2}
-  - {fileID: 11400000, guid: 76aac64b5840fbd4ab7be36b8fbd8ad2, type: 2}
+  - {fileID: 11400000, guid: c1238c55d12c2b24dbaca4c2db589ac6, type: 2}
+  - {fileID: 11400000, guid: b3b5cd4e10662064c90c7d093ca37193, type: 2}
 --- !u!1 &314331681
 GameObject:
   m_ObjectHideFlags: 0
@@ -2268,10 +2270,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardsInPlayerHand:
-  - {fileID: 11400000, guid: b9ee608f003c12740bd7c804c02e9206, type: 2}
-  - {fileID: 11400000, guid: 97b46139670b8124eae11470ba4528b5, type: 2}
+  - {fileID: 11400000, guid: b3b5cd4e10662064c90c7d093ca37193, type: 2}
+  - {fileID: 11400000, guid: c392dc138a9936148929f6ae5e22812d, type: 2}
   - {fileID: 11400000, guid: 37957a1858abd1345b1dd84252b327e7, type: 2}
-  - {fileID: 11400000, guid: 76aac64b5840fbd4ab7be36b8fbd8ad2, type: 2}
+  - {fileID: 11400000, guid: 1eec6ada876c12440abc1d5f18f45a9d, type: 2}
 --- !u!114 &1988247428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2704,6 +2706,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3908947714912037943, guid: f879540353b253e42a91b9d38fbaa910, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.8371
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908947714912037943, guid: f879540353b253e42a91b9d38fbaa910, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.8371
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908947714912037943, guid: f879540353b253e42a91b9d38fbaa910, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.8371
+      objectReference: {fileID: 0}
     - target: {fileID: 3908947714912037943, guid: f879540353b253e42a91b9d38fbaa910, type: 3}
       propertyPath: m_LocalPosition.x
       value: 15.19

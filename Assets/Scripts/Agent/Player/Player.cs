@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class Player : MonoBehaviour
+public class Player : Agent
 {
     public Animator animator {  get; private set; }
 
@@ -60,4 +60,34 @@ public class Player : MonoBehaviour
 
         GameManager.instance.turnUI.PlayPlayerTurnAnimation();      // when all card settles ,, play player turn animation
     }
+
+    #region Card affect functions
+    public override void HPGain(int amount)
+    {
+    }
+
+    public override void HPLoss(int amount)
+    {
+    }
+
+    public override void EssenceGain(int amount)
+    {
+    }
+
+    public override void EssenceLoss(int amount)
+    {
+    }
+
+    public override void MaxEssenceGain(int amount)
+    {
+    }
+
+    public override void MaxEssenceLoss(int amount)
+    {
+    }
+
+    public override void DrawCards(int amount)
+    {
+    }
+    #endregion
 }

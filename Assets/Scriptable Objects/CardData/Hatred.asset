@@ -9,14 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8c67d3ee1ccd364e9a6c9a2380a0726, type: 3}
+  m_Script: {fileID: 11500000, guid: 39ab92ca9da52b9449362934f021d528, type: 3}
   m_Name: Hatred
   m_EditorClassIdentifier: 
-  typeOfcard: 0
+  typeOfCard: 0
   cardName: Hatred
   cardImg: {fileID: 21300000, guid: f9d8ba8eb385c2a4da2e0a109043fafb, type: 3}
-  smallImg: {fileID: 21300000, guid: eff599691927663408efe3f8ddd41d6e, type: 3}
-  description: Best Way To destroy yourself and your enemy...!
-  attackDamage: 3
+  smallImg: {fileID: 21300000, guid: f9d8ba8eb385c2a4da2e0a109043fafb, type: 3}
+  description: 
+  damageToTarget: 3
   manaCost: 1
   cardAttackEffect: {fileID: 2160225223313947227, guid: 91d5f16bc5c079e418011a3ea0f89130, type: 3}
+  damageToSelf: 1
