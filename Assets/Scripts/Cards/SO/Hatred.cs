@@ -9,8 +9,7 @@ public class Hatred : Cards_SO
 
     public override void ApplyCardEffects(Agent host, Agent target)
     {
-        base.ApplyCardEffects(host, target);
-
+        host.EssenceLoss(ManaCost);
         target.HPLoss(DamageToTarget);
         host.HPLoss(damageToSelf);
     }

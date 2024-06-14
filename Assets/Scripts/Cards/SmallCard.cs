@@ -33,9 +33,6 @@ public class SmallCard : MonoBehaviour, IDragHandler, IPointerEnterHandler, IPoi
     private bool isBelongToEnemy;
     private bool isEnemyCardReachedBattleField;
 
-    private Agent host;
-    private Agent target;
-
     public bool attackPlayer { get; set; }
 
     private void Start()
@@ -164,7 +161,7 @@ public class SmallCard : MonoBehaviour, IDragHandler, IPointerEnterHandler, IPoi
     }
 
     public void smallCardSetup
-        ( Cards_SO _cardData , GameObject _mainCard , Sprite _sprite , Vector3 _spawnPosition , Vector3 _targetPosition , int _holdPointIndex , bool _isBelongToEnemy , bool _attackPlayer, Agent host, Agent target)
+        ( Cards_SO _cardData , GameObject _mainCard , Sprite _sprite , Vector3 _spawnPosition , Vector3 _targetPosition , int _holdPointIndex , bool _isBelongToEnemy , bool _attackPlayer)
     {
         cardData = _cardData;
 
@@ -180,11 +177,6 @@ public class SmallCard : MonoBehaviour, IDragHandler, IPointerEnterHandler, IPoi
         attackPlayer = _attackPlayer;
 
         backPointPosition = Camera.main.transform.position;
-
-        this.host = host;
-        this.target = target;
-
-        host.EssenceLoss(cardData.ManaCost);
     }
 
     private void LineFollowMouse()
@@ -227,14 +219,7 @@ public class SmallCard : MonoBehaviour, IDragHandler, IPointerEnterHandler, IPoi
         EnemyHealth enemyHealth = GameManager.instance.Enemy.GetComponent<EnemyHealth>();
         //enemyHealth.takeDamageOf(cardData.DamageToTarget);
 
-        if (host != null && target != null)
-        {
-            cardData.ApplyCardEffects(host, target);
-        }
-        else
-        {
-            Debug.Log("One of these is null. Host " + host + ", target " + target);
-        }
+        cardData.ApplyCardEffects(host: Player.Instance, target: Enemy.Instance);
 
         GameObject _cardAttackEffect = Instantiate(cardData.CardAttackEffect, GameManager.instance.Enemy.position, Quaternion.identity);
         Destroy(_cardAttackEffect, 2f);
@@ -271,14 +256,8 @@ public class SmallCard : MonoBehaviour, IDragHandler, IPointerEnterHandler, IPoi
         PlayerHealth playerHealth = GameManager.instance.Player.GetComponent<PlayerHealth>();
         //playerHealth.takeDamageOf(cardData.DamageToTarget);
 
-        if (host != null && target != null)
-        {
-            cardData.ApplyCardEffects(host, target);
-        }
-        else
-        {
-            Debug.Log("One of these is null. Host " + host + ", target " + target);
-        }
+        cardData.ApplyCardEffects(host: Enemy.Instance, 
+            target: Player.Instance);
 
         GameObject _cardAttackEffect = Instantiate(cardData.CardAttackEffect, GameManager.instance.Player.position , Quaternion.identity);
         Destroy(_cardAttackEffect , 2f);

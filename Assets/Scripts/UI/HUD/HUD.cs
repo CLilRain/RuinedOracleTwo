@@ -32,12 +32,6 @@ public class HUD : MonoBehaviour
 
     protected Turn_UI gameplayUI;
 
-    protected float currrentTime = 60;
-    protected float maxTime = 60;
-
-    protected int currentEssence = 6;
-    protected int maxEssence = 6;
-
     public virtual void Awake()
     {
         Instance = this;
@@ -46,36 +40,12 @@ public class HUD : MonoBehaviour
     protected virtual void Start()
     {
         gameplayUI = FindObjectOfType<Turn_UI>();
-
-#if UNITY_EDITOR
-        SetPlayerEssence(currentEssence, maxEssence);
-#endif
-    }
-
-    protected virtual void Update()
-    {
-#if UNITY_EDITOR
-        //currrentTime -= Time.deltaTime;
-        SetPlayerTimePoints(Mathf.Round(currrentTime), Mathf.Round(maxTime));
-
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            currentEssence--;
-            SetPlayerEssence(currentEssence, maxEssence);
-        }
-
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            currentEssence++;
-            SetPlayerEssence(currentEssence, maxEssence);
-        }
-#endif
     }
 
     public virtual void SetPlayerTimePoints(float current, float max)
     {
         timePointBar.fillAmount = current / max;
-        timePointText.text = string.Format("{0} sec", current);
+        timePointText.text = string.Format("{0} / {1}", current, max);
     }
 
     public virtual void SetPlayerEssence(int current, int max)
@@ -103,5 +73,15 @@ public class HUD : MonoBehaviour
         }
 
         gameplayUI.onPressedEndTurn();
+    }
+
+    public virtual void PressedGameWonButton()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+    }
+
+    public virtual void PressedGameLostButton()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 }

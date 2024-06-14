@@ -6,7 +6,7 @@ public abstract class Agent : MonoBehaviour
     public int maxHealth;
 
     public int essence;
-    public int maxessence;
+    public int maxEssence;
 
     protected bool isDead;
 
@@ -16,8 +16,8 @@ public abstract class Agent : MonoBehaviour
     protected virtual void Awake()
     {
         // Temporary values
-        health = maxHealth = 100;
-        essence = maxessence = 100;
+        health = maxHealth = 8;
+        essence = maxEssence = 6;
     }
 
     protected virtual void Start()
@@ -44,25 +44,31 @@ public abstract class Agent : MonoBehaviour
 
     public virtual void EssenceGain(int amount)
     {
-        essence = Mathf.Clamp(essence + amount, 0, maxessence);
+        essence = Mathf.Clamp(essence + amount, 0, maxEssence);
         UpdateEssenceUI();
     }
 
     public virtual void EssenceLoss(int amount)
     {
-        essence = Mathf.Clamp(essence - amount, 0, maxessence);
+        essence = Mathf.Clamp(essence - amount, 0, maxEssence);
         UpdateEssenceUI();
     }
 
     public virtual void MaxEssenceGain(int amount)
     {
-        maxessence += amount;
+        if (essence == maxEssence)
+        {
+            essence = maxEssence;
+        }
+
+        maxEssence += amount;
         UpdateEssenceUI();
     }
 
     public virtual void MaxEssenceLoss(int amount)
     {
-        maxessence = Mathf.Clamp(maxessence - amount, 0, maxessence);
+        essence = Mathf.Clamp(essence, 0, maxEssence);
+        maxEssence = Mathf.Clamp(maxEssence - amount, 0, maxEssence);
         UpdateEssenceUI();
     }
 
@@ -79,7 +85,7 @@ public abstract class Agent : MonoBehaviour
 
     protected virtual void UpdateEssenceUI()
     {
-        hud.SetPlayerEssence(essence, maxessence);
+        hud.SetPlayerEssence(essence, maxEssence);
     }
 
     protected virtual void DeathCheck()

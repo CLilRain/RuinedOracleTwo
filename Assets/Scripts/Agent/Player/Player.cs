@@ -34,6 +34,7 @@ public class Player : Agent
         {
             cardDrawnAtPlayerTurn = true;
             GameManager.instance.drawCardFromCardCollection();
+            EssenceGain(1);
         }
 
     }
@@ -74,7 +75,7 @@ public class Player : Agent
 
     protected override void UpdateEssenceUI()
     {
-        hud.SetPlayerEssence(essence, maxessence);
+        hud.SetPlayerEssence(essence, maxEssence);
     }
 
     protected override void AgentDead()

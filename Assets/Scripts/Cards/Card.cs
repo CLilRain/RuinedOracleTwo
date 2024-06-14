@@ -102,26 +102,22 @@ public class Card : MonoBehaviour, IDragHandler, IDropHandler, IPointerEnterHand
 
                     field.setCardOnFieldForPlayer(this.gameObject, true);
 
-
                     isOnField = true;
                     transform.parent = null;
 
                     GameObject _smallCard = Instantiate(smallCard);
 
                     _smallCard.GetComponent<SmallCard>().
-                        smallCardSetup(cardData, this.gameObject, cardData.smallIMG, field.getCardPositionForPlayerInField().position, Vector2.zero , field.getCardHoldPointIndexForPlayer() , false , false, host: Player.Instance, target: Enemy.Instance);
-
+                        smallCardSetup(cardData, this.gameObject, cardData.smallIMG, field.getCardPositionForPlayerInField().position, Vector2.zero , field.getCardHoldPointIndexForPlayer() , false , false);
 
                     GameManager.instance.Player.GetComponent<Player>().cardsInPlayerHand.Remove(cardData);
                     this.gameObject.SetActive(false);
-
 
                     //check if not enough mana to attack then pass turn to Enemy
                     //GameManager.instance.turnUI.PlayEnemyTurnAnimation();
 
                     return;
                 }
-
             }
             // if you not droping on field -- it return to it original position
             transform.position = cardMotion.targetPoint.position;
@@ -137,7 +133,6 @@ public class Card : MonoBehaviour, IDragHandler, IDropHandler, IPointerEnterHand
 
         if (GameManager.instance.isPlayerTurn)
         {
-
             GetComponentInChildren<Canvas>().sortingOrder = 2;
            
             if (isOnField)

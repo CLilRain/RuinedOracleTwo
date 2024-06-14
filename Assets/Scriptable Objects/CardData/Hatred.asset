@@ -17,7 +17,7 @@ MonoBehaviour:
   cardImg: {fileID: 21300000, guid: f9d8ba8eb385c2a4da2e0a109043fafb, type: 3}
   smallImg: {fileID: 21300000, guid: f9d8ba8eb385c2a4da2e0a109043fafb, type: 3}
   description: 
-  damageToTarget: 0
+  damageToTarget: 3
   manaCost: 3
   cardAttackEffect: {fileID: 836054535952877741, guid: 2bcf78edc055a314abd51cae2ea9d665, type: 3}
-  damageToSelf: 2
+  damageToSelf: 1

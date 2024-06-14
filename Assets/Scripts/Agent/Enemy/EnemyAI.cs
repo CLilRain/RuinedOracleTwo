@@ -141,8 +141,7 @@ public class EnemyAI : MonoBehaviour
                 Instantiate(smallCard, enemyCardHoldPoint.position, Quaternion.identity);
 
         _smallCard.GetComponent<SmallCard>().
-            smallCardSetup(_card.cardData, _battleFieldCard, _card.cardData.smallIMG, enemyCardHoldPoint.position, _field.getCardPositionForEnemyInField().position, _field.getCardHoldPointIndexForEnemy(), true, _attack,
-             host: Enemy.Instance, target: Player.Instance);
+            smallCardSetup(_card.cardData, _battleFieldCard, _card.cardData.smallIMG, enemyCardHoldPoint.position, _field.getCardPositionForEnemyInField().position, _field.getCardHoldPointIndexForEnemy(), true, _attack);
 
         smallCardsInFields.Add(_smallCard);
     }

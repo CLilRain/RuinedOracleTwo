@@ -31,6 +31,7 @@ public class Enemy : Agent
         if (GameManager.instance.isEnemyTurn && cardDrawLeft)
         {
             enemyAI.spawnCardForEnemy();
+            EssenceGain(1);
         }
     }
 
@@ -41,7 +42,7 @@ public class Enemy : Agent
 
     protected override void UpdateEssenceUI()
     {
-        hud.SetEnemyEssence(essence, maxessence);
+        hud.SetEnemyEssence(essence, maxEssence);
     }
 
     protected override void AgentDead()

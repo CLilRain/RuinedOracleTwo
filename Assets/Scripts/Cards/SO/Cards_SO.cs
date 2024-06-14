@@ -64,7 +64,7 @@ public class Cards_SO : ScriptableObject
 
     public virtual void ApplyCardEffects(Agent host, Agent target)
     {
-        target.EssenceLoss(ManaCost);
+        host.EssenceLoss(ManaCost);
         target.HPLoss(damageToTarget);
     }
 }
