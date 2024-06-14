@@ -8,7 +8,10 @@ public abstract class Agent : MonoBehaviour
     public int essence;
     public int maxessence;
 
+    protected bool isDead;
+
     protected HUD hud;
+    protected UIManager uiManager;
 
     protected virtual void Awake()
     {
@@ -20,6 +23,8 @@ public abstract class Agent : MonoBehaviour
     protected virtual void Start()
     {
         hud = HUD.Instance;
+        uiManager = UIManager.Instance;
+
         UpdateHealthUI();
         UpdateEssenceUI();
     }
@@ -34,6 +39,7 @@ public abstract class Agent : MonoBehaviour
     {
         health = Mathf.Clamp(health - amount, 0, maxHealth);
         UpdateHealthUI();
+        DeathCheck();
     }
 
     public virtual void EssenceGain(int amount)
@@ -68,11 +74,34 @@ public abstract class Agent : MonoBehaviour
     // TODO: Other effects
     protected virtual void UpdateHealthUI()
     {
-        hud.SetTimePoints(health, maxHealth);
+        hud.SetPlayerTimePoints(health, maxHealth);
     }
 
     protected virtual void UpdateEssenceUI()
     {
-        hud.SetEssence(essence, maxessence);
+        hud.SetPlayerEssence(essence, maxessence);
+    }
+
+    protected virtual void DeathCheck()
+    {
+        if (health <= 0)
+        {
+            AgentDead();
+        }
+    }
+
+    protected virtual void AgentDead()
+    {
+
+    }
+
+    protected virtual void PlayerWon()
+    {
+        uiManager.ShowGameWon();
+    }
+
+    protected virtual void PlayerLost()
+    {
+        uiManager.ShowGameLost();
     }
 }

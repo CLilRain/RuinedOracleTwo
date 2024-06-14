@@ -1,18 +1,17 @@
 using UnityEngine;
 using System.Collections;
 
-public class PlayerHealth : MonoBehaviour
+public class PlayerHealth : Agent
 {
     private Player player;
 
     private SpriteRenderer spriteRenderer;
 
-    [SerializeField] private int health;
-
     private bool hit;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         player = GetComponent<Player>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -48,5 +47,10 @@ public class PlayerHealth : MonoBehaviour
         yield return new WaitForSeconds(.5f);
 
         spriteRenderer.color = Color.white;
+    }
+
+    protected override void UpdateHealthUI()
+    {
+        hud.SetPlayerTimePoints(health, maxHealth);
     }
 }

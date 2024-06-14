@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 public class Enemy : Agent
 {
+    public static Enemy Instance;
+
     private EnemyAI enemyAI;
     public Animator animator {  get; private set; }
 
@@ -10,13 +12,18 @@ public class Enemy : Agent
    
     public bool cardDrawLeft { get; set; } = true;
 
-
     protected override void Awake()
     {
         base.Awake();
 
         enemyAI = GetComponent<EnemyAI>();
         animator = GetComponent<Animator>();
+    }
+
+    protected override void Start()
+    {
+        base.Start();
+        Instance = this;
     }
 
     private void Update()
@@ -37,33 +44,8 @@ public class Enemy : Agent
         hud.SetEnemyEssence(essence, maxessence);
     }
 
-    #region Card affect functions
-    public override void HPGain(int amount)
+    protected override void AgentDead()
     {
+        uiManager.ShowGameWon();
     }
-
-    public override void HPLoss(int amount)
-    {
-    }
-
-    public override void EssenceGain(int amount)
-    {
-    }
-
-    public override void EssenceLoss(int amount)
-    {
-    }
-
-    public override void MaxEssenceGain(int amount)
-    {
-    }
-
-    public override void MaxEssenceLoss(int amount)
-    {
-    }
-
-    public override void DrawCards(int amount)
-    {
-    }
-    #endregion
 }

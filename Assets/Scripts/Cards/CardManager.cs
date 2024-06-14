@@ -5,9 +5,7 @@ public class CardManager : MonoBehaviour
 {
     public static CardManager instance;
 
-
     public bool isCardsBusy {  get; set; }    // this is for -- when card is doing some activity we don't need to selected or drag card so we using this variable
-
 
     private void Awake()
     {

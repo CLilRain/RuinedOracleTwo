@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class Player : Agent
 {
+    public static Player Instance;
+
     public Animator animator {  get; private set; }
 
     public List<Cards_SO> cardsInPlayerHand = new List<Cards_SO>();     // later make this { get ; private set;}
@@ -17,6 +19,7 @@ public class Player : Agent
     {
         base.Awake();
         animator = GetComponent<Animator>();
+        Instance = this;
     }
 
     protected override void Start()
@@ -63,33 +66,19 @@ public class Player : Agent
         GameManager.instance.turnUI.PlayPlayerTurnAnimation();      // when all card settles ,, play player turn animation
     }
 
-    #region Card affect functions
-    public override void HPGain(int amount)
+
+    protected override void UpdateHealthUI()
     {
+        hud.SetPlayerTimePoints(health, maxHealth);
     }
 
-    public override void HPLoss(int amount)
+    protected override void UpdateEssenceUI()
     {
+        hud.SetPlayerEssence(essence, maxessence);
     }
 
-    public override void EssenceGain(int amount)
+    protected override void AgentDead()
     {
+        uiManager.ShowGameLost();
     }
-
-    public override void EssenceLoss(int amount)
-    {
-    }
-
-    public override void MaxEssenceGain(int amount)
-    {
-    }
-
-    public override void MaxEssenceLoss(int amount)
-    {
-    }
-
-    public override void DrawCards(int amount)
-    {
-    }
-    #endregion
 }

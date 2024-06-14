@@ -32,13 +32,11 @@ public class HUD : MonoBehaviour
 
     protected Turn_UI gameplayUI;
 
-#if UNITY_EDITOR
     protected float currrentTime = 60;
     protected float maxTime = 60;
 
     protected int currentEssence = 6;
     protected int maxEssence = 6;
-#endif
 
     public virtual void Awake()
     {
@@ -50,7 +48,7 @@ public class HUD : MonoBehaviour
         gameplayUI = FindObjectOfType<Turn_UI>();
 
 #if UNITY_EDITOR
-        SetEssence(currentEssence, maxEssence);
+        SetPlayerEssence(currentEssence, maxEssence);
 #endif
     }
 
@@ -58,34 +56,29 @@ public class HUD : MonoBehaviour
     {
 #if UNITY_EDITOR
         //currrentTime -= Time.deltaTime;
-        SetTimePoints(Mathf.Round(currrentTime), Mathf.Round(maxTime));
+        SetPlayerTimePoints(Mathf.Round(currrentTime), Mathf.Round(maxTime));
 
         if (Input.GetKeyDown(KeyCode.U))
         {
             currentEssence--;
-            SetEssence(currentEssence, maxEssence);
+            SetPlayerEssence(currentEssence, maxEssence);
         }
 
         if (Input.GetKeyDown(KeyCode.I))
         {
             currentEssence++;
-            SetEssence(currentEssence, maxEssence);
+            SetPlayerEssence(currentEssence, maxEssence);
         }
 #endif
     }
 
-    public virtual void SetTimePoints(int current, int max)
-    {
-        SetTimePoints(current, max);
-    }
-
-    public virtual void SetTimePoints(float current, float max)
+    public virtual void SetPlayerTimePoints(float current, float max)
     {
         timePointBar.fillAmount = current / max;
         timePointText.text = string.Format("{0} sec", current);
     }
 
-    public virtual void SetEssence(int current, int max)
+    public virtual void SetPlayerEssence(int current, int max)
     {
         essenceBar.fillAmount = (float)current / (float)max;
         essenceText.text = string.Format("{0} / {1}", current, max);

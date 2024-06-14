@@ -109,7 +109,7 @@ public class Card : MonoBehaviour, IDragHandler, IDropHandler, IPointerEnterHand
                     GameObject _smallCard = Instantiate(smallCard);
 
                     _smallCard.GetComponent<SmallCard>().
-                        smallCardSetup(cardData, this.gameObject, cardData.smallIMG, field.getCardPositionForPlayerInField().position, Vector2.zero , field.getCardHoldPointIndexForPlayer() , false , false);
+                        smallCardSetup(cardData, this.gameObject, cardData.smallIMG, field.getCardPositionForPlayerInField().position, Vector2.zero , field.getCardHoldPointIndexForPlayer() , false , false, host: Player.Instance, target: Enemy.Instance);
 
 
                     GameManager.instance.Player.GetComponent<Player>().cardsInPlayerHand.Remove(cardData);
